@@ -19,10 +19,10 @@ class loginController {
       if (isNotEmptyArray(data)) {
         const item = data[0];
         const token = jwtUtil.sign(item);
+        ctx.cookies.set('token', token);
         ctx.body = resUtil.successJson({
           token: token, id: item.id, accNumber: item.acc_number, nickName: item.nick_name, phone: item.phone
         });
-        ctx.cookies.set('token', token);
       } else {
         ctx.body = resUtil.errorJson('账号或密码错误')
       }
@@ -31,8 +31,9 @@ class loginController {
     }
   }
 
-  static async loginOut(ctx) {
-
+  static async checkLogin(ctx) {
+    ctx.response.status = 200;
+    ctx.body = resUtil.successJson(null)
   }
 }
 
