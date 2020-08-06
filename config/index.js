@@ -7,7 +7,7 @@ export const SERVICE = {HOST: '', PORT: '9996'};
  * 数据库配置
  * */
 export const DATABASE = {
-  HOST: '49.233.149.56',
+  HOST: '127.0.0.1',
   PORT: 5432,
   USER: 'postgres',
   PASSWORD: '123456peng',
